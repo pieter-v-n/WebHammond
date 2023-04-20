@@ -34,7 +34,7 @@ The tone generator is provided by the Generator class. It instantiates the (91) 
 Note that all oscillators produce a sine wave. Some Hammond organs have tone wheels (for the lowest frequencies) with a special shape, in order to introduce harmonics. This has been tried in the emulator but this is not improving the sound. 
 
 ## Keyboards
-This organ provides 3 keyboards: the upper manual with 61 keys, the lower manual with 61 keys and the pedal boar with 25 keys.
+This organ provides 3 keyboards: the upper manual with 61 keys, the lower manual with 61 keys and the pedal board with 25 keys.
 When a key is pressed on the upper or lower manual, 9 contacts will close. The keyContactsMap array defines which tone is switched by that key. For the pedal keyboard, each pedal has 2 contacts.
 These 9 signals from the key contacts are first fed into filters to reduce the key click. The key click is the phenomena that when a contact is closed, the signal from the oscillator is not zero, i.e. the signal will rise instantanously from 0 to that value. This coases a sharp transient in the signal, audible as a click. The same happens when a contact is opened: the signal suddenly drops to 0. To reduce the effect of this, a set of low-pass filters are added, to smooth out the signal a little bit. Then the signals are fed to the draw-bars, to regulate the volume of each tone, i.e. change its timbre. The timbre is defined by the amount of harmonics present in the signal. ![keybaords](/docs/hammond-keyboards.png)
 
