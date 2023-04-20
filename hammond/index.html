@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hammond Emulator</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <!--<script src='main.js'></script>-->
+</head>
+
+<body>
+
+    <p>Hammond Emulator
+        <button id="start" type="button" onmousedown="start()">Start</button>
+        <ul class="midi">
+            <li class="midi"><button id="midi" type="button" onmousedown="testMidi()">MIDI</button></li>
+            <li class="midi"><input type="radio" id="upper" name="midiMapper" onclick="midiMap(1)" value="Upper"><label for="upper">Upper</label></li>
+            <li class="midi"><input type="radio" id="lower" name="midiMapper" onclick="midiMap(2)" value="Lower"><label for="lower">Lower</label></li>
+            <li class="midi"><input type="radio" id="pedal" name="midiMapper" onclick="midiMap(3)"value="Pedal"> <label for="pedal">Pedal</label></li>
+        </ul>
+        <input type="range" id="upperVibratoFreq" name="vibratoFreq" min="0" max="10" step="0.5" value="0">
+        <label for="vibratoFreq">uVf</label>
+        <input type="range" id="upperVibratoDepth" name="vibratoDepth" min="0" max="1" step="0.1" value="0">
+        <label for="vibratoDepth">uVd</label>
+        <input type="range" id="upperChorus" name="chorus" min="0" max="1" step="0.1" value="0">
+        <label for="chorus">uCh</label>
+        <input type="range" id="lowerVibratoFreq" name="vibratoFreq" min="0" max="10" step="0.5" value="0">
+        <label for="vibratoFreq">lVf</label>
+        <input type="range" id="lowerVibratoDepth" name="vibratoDepth" min="0" max="1" step="0.1" value="0">
+        <label for="vibratoDepth">lVd</label>
+        <input type="range" id="lowerChorus" name="chorus" min="0" max="1" step="0.1" value="0">
+        <label for="chorus">lCh</label>
+        <input type="range" id="leslieFreq" name="leslieFreq" min="0" max="10" step="0.5" value="0">
+        <label for="leslieFreq">lsf</label>
+        <input type="range" id="leslieDepth" name="leslieDepth" min="0" max="1" step="0.1" value="0">
+        <label for="leslieDepth">lsd</label>
+
+    </p>
+    <p>
+        <label for="reverbs">Select reverb type:</label>
+        <select name="reverbs" id="reverbs">
+            <option value="AbernyteGrainSilo">AbernyteGrainSilo</option>
+            <option value="ArbroathAbbeySacristy">ArbroathAbbeySacristy</option>
+            <option value="Basement">Basement</option>
+            <option value="DomesticLivingRoom" selected="selected">DomesticLivingRoom</option>
+            <option value="ElvedenHallLordsCloakroom">ElvedenHallLordsCloakroom</option>
+            <option value="ElvedenHallMarbleHall">ElvedenHallMarbleHall</option>
+            <option value="ElvedenHallSmokingRoom">ElvedenHallSmokingRoom</option>
+            <option value="ElvedenHallVisitorsCloakroom">ElvedenHallVisitorsCloakroom</option>
+            <option value="EmptyApartmentBedroom">EmptyApartmentBedroom</option>
+            <option value="ErrolBrickworksKiln">ErrolBrickworksKiln</option>
+            <option value="FalklandPalaceRoyalTennisCourt">FalklandPalaceRoyalTennisCourt</option>
+            <option value="HamiltonMausoleum">HamiltonMausoleum</option>
+            <option value="InsidePiano">InsidePiano</option>
+            <option value="KinoullAisle">KinoullAisle</option>
+            <option value="LadyChapelStAlbansCathedral">LadyChapelStAlbansCathedral</option>
+            <option value="MaesHowe">MaesHowe</option>
+            <option value="MidiverbMark2Preset29">MidiverbMark2Preset29</option>
+            <option value="PerthCityHallBalcony">PerthCityHallBalcony</option>
+            <option value="PurnodesRailroadTunnel">PurnodesRailroadTunnel</option>
+            <option value="R1NuclearReactorHall">R1NuclearReactorHall</option>
+            <option value="SaintLawrenceChurchMolenbeekWersbeekBelgium">SaintLawrenceChurchMolenbeekWersbeekBelgium</option>
+            <option value="SpokaneWomansClub">SpokaneWomansClub</option>
+            <option value="SportsCentreUniversityOfYork">SportsCentreUniversityOfYork</option>
+            <option value="StairwayUniversityOfYork">StairwayUniversityOfYork</option>
+            <option value="StAndrewsChurch">StAndrewsChurch</option>
+            <option value="StMarysAbbeyReconstructionPhase1">StMarysAbbeyReconstructionPhase1</option>
+            <option value="StMarysAbbeyReconstructionPhase2">StMarysAbbeyReconstructionPhase2</option>
+            <option value="StMarysAbbeyReconstructionPhase3">StMarysAbbeyReconstructionPhase3</option>
+            <option value="StPatricksChurchPatringtonPosition1">StPatricksChurchPatringtonPosition1</option>
+            <option value="StPatricksChurchPatringtonPosition2">StPatricksChurchPatringtonPosition2</option>
+            <option value="StPatricksChurchPatringtonPosition3">StPatricksChurchPatringtonPosition3</option>
+            <option value="TerrysFactoryWarehouse">TerrysFactoryWarehouse</option>
+            <option value="TerrysTypingRoom">TerrysTypingRoom</option>
+            <option value="TyndallBruceMonument">TyndallBruceMonument</option>
+            <option value="UndergroundCarPark">UndergroundCarPark</option>
+            <option value="YorkMinster">YorkMinster</option>
+        </select>
+        <a href="http://reverbjs.org/" target="_blank">More info about reverb types</a>
+    </p>
+
+    <div style="float: left; margin-right: 30px;">
+        <div id="drawbarLower"
+            style="border: 1px solid black; padding: 3px; margin-top: -40px; margin-bottom: -30px; margin-left: 120px; transform: rotate(90deg); display: inline-block;">
+            <form action="">
+                <input type="range" id="lower8" name="lower8" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: gray">
+                <label for="labelLower8">1'</label>
+            </form>
+            <form action="">
+                <input type="range" id="lower7" name="lower7" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: black">
+                <label for="labelLower7">1&#8531;'</label>
+            </form>
+            <form action="">
+                <input type="range" id="lower6" name="lower6" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: black">
+                <label for="labelLower7">1&#8535;'</label>
+            </form>
+            <form action="">
+                <input type="range" id="lower5" name="lower5" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: gray">
+                <label for="labelLower6">2'</label>
+            </form>
+            <form action="">
+                <input type="range" id="lower4" name="lower4" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: black">
+                <label for="labelLower5">2&#8532;'</label>
+            </form>
+            <form action="">
+                <input type="range" id="lower3" name="lower3" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: gray">
+                <label for="labelLower3">4'</label>
+            </form>
+            <form action="">
+                <input type="range" id="lower2" name="lower2" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: gray">
+                <label for="labelLower2">8'</label>
+            </form>
+            <form action="">
+                <input type="range" id="lower1" name="lower1" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: brown">
+                <label for="labelLower1">5&#8531;'</label>
+            </form>
+            <form action="">
+                <input type="range" id="lower0" name="lower0" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: brown">
+                <label for="labelLower0">16'</label>
+            </form>
+            <p style="transform: rotate(270deg); margin-left:150px;">Lower</p>
+        </div>
+    </div>
+    <div style="float: left;">
+        <div id="drawbarPedal"
+            style="border: 1px solid black; padding: 3px; margin-top: 60px; margin-bottom: -30px; transform: rotate(90deg); display: inline-block;">
+            <form action="">
+                <input type="range" id="pedal1" name="pedal1" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: brown">
+                <datalist id="clicks">
+                    <option value="0" label="0"></option>
+                    <option value="1" label="1"></option>
+                    <option value="2" label="2"></option>
+                    <option value="3" label="3"></option>
+                    <option value="4" label="4"></option>
+                    <option value="5" label="5"></option>
+                    <option value="6" label="6"></option>
+                    <option value="7" label="7"></option>
+                    <option value="8" label="8"></option>
+                    <option value="9" label="9"></option>
+                </datalist>
+                <label for="labelPedal8">8'</label>
+            </form>
+            <form action="">
+                <input type="range" id="pedal0" name="pedal0" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: brown">
+                <label for="labelPedal0">16'</label>
+            </form>
+            <p style="transform: rotate(270deg); margin-left:150px;">Pedal</p>
+        </div>
+    </div>
+    <div style="display: inline-float-left; /* margin-left: 30px;*/ ">
+        <div id="drawbarUpper"
+            style="border: 1px solid black; padding: 3px; margin-top: -40px; margin-left: 30px; margin-bottom: -30px; transform: rotate(90deg); display: inline-block;">
+            <form action="">
+                <input type="range" id="upper8" name="upper8" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: gray">
+                <label for="labelUpper8">1'</label>
+            </form>
+            <form action="">
+                <input type="range" id="upper7" name="upper7" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: black">
+                <label for="labelUpper7">1&#8531;'</label>
+            </form>
+            <form action="">
+                <input type="range" id="upper6" name="upper6" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: black">
+                <label for="labelUpper7">1&#8535;'</label>
+            </form>
+            <form action="">
+                <input type="range" id="upper5" name="upper5" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: gray">
+                <label for="labelUpper6">2'</label>
+            </form>
+            <form action="">
+                <input type="range" id="upper4" name="upper4" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: black">
+                <label for="labelUpper5">2&#8532;'</label>
+            </form>
+            <form action="">
+                <input type="range" id="upper3" name="upper3" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: gray">
+                <label for="labelUpper3">4'</label>
+            </form>
+            <form action="">
+                <input type="range" id="upper2" name="upper2" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: gray">
+                <label for="labelUpper2">8'</label>
+            </form>
+            <form action="">
+                <input type="range" id="upper1" name="upper1" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: brown">
+                <label for="labelUpper1">5&#8531;'</label>
+            </form>
+            <form action="">
+                <input type="range" id="upper0" name="upper0" min="0" max="9" step="1" value="0" list="clicks"
+                    style="display: inline-block; accent-color: brown">
+                <label for="labelUpper0">16'</label>
+            </form>
+            <p style="transform: rotate(270deg); margin-left:150px;">Upper</p>
+        </div>
+    </div>
+    <ul class="set">
+        <!-- Upper manual -->
+        <li class="white c" id="ukey0" type="button" onmousedown="upper.keyOn(0)" onmouseup="upper.keyOff(0)"></li>
+        <li class="black cs" id="ukey1" type="button" onmousedown="upper.keyOn(1)" onmouseup="upper.keyOff(1)"></li>
+        <li class="white d" id="ukey2" type="button" onmousedown="upper.keyOn(2)" onmouseup="upper.keyOff(2)"></li>
+        <li class="black ds" id="ukey3" type="button" onmousedown="upper.keyOn(3)" onmouseup="upper.keyOff(3)"></li>
+        <li class="white e" id="ukey4" type="button" onmousedown="upper.keyOn(4)" onmouseup="upper.keyOff(4)"></li>
+        <li class="white f" id="ukey5" type="button" onmousedown="upper.keyOn(5)" onmouseup="upper.keyOff(5)"></li>
+        <li class="black fs" id="ukey6" type="button" onmousedown="upper.keyOn(6)" onmouseup="upper.keyOff(6)"></li>
+        <li class="white g" id="ukey7" type="button" onmousedown="upper.keyOn(7)" onmouseup="upper.keyOff(7)"></li>
+        <li class="black gs" id="ukey8" type="button" onmousedown="upper.keyOn(8)" onmouseup="upper.keyOff(8)"></li>
+        <li class="white a" id="ukey9" type="button" onmousedown="upper.keyOn(9)" onmouseup="upper.keyOff(9)"></li>
+        <li class="black as" id="ukey10" type="button" onmousedown="upper.keyOn(10)" onmouseup="upper.keyOff(10)"></li>
+        <li class="white b" id="ukey11" type="button" onmousedown="upper.keyOn(11)" onmouseup="upper.keyOff(11)"></li>
+        <li class="white c" id="ukey12" type="button" onmousedown="upper.keyOn(12)" onmouseup="upper.keyOff(12)"></li>
+        <li class="black cs" id="ukey13" type="button" onmousedown="upper.keyOn(13)" onmouseup="upper.keyOff(13)"></li>
+        <li class="white d" id="ukey14" type="button" onmousedown="upper.keyOn(14)" onmouseup="upper.keyOff(14)"></li>
+        <li class="black ds" id="ukey15" type="button" onmousedown="upper.keyOn(15)" onmouseup="upper.keyOff(15)"></li>
+        <li class="white e" id="ukey16" type="button" onmousedown="upper.keyOn(16)" onmouseup="upper.keyOff(16)"></li>
+        <li class="white f" id="ukey17" type="button" onmousedown="upper.keyOn(17)" onmouseup="upper.keyOff(17)"></li>
+        <li class="black fs" id="ukey18" type="button" onmousedown="upper.keyOn(18)" onmouseup="upper.keyOff(18)"></li>
+        <li class="white g" id="ukey19" type="button" onmousedown="upper.keyOn(19)" onmouseup="upper.keyOff(19)"></li>
+        <li class="black gs" id="ukey20" type="button" onmousedown="upper.keyOn(20)" onmouseup="upper.keyOff(20)"></li>
+        <li class="white a" id="ukey21" type="button" onmousedown="upper.keyOn(21)" onmouseup="upper.keyOff(21)"></li>
+        <li class="black as" id="ukey22" type="button" onmousedown="upper.keyOn(22)" onmouseup="upper.keyOff(22)"></li>
+        <li class="white b" id="ukey23" type="button" onmousedown="upper.keyOn(23)" onmouseup="upper.keyOff(23)"></li>
+        <li class="white c" id="ukey24" type="button" onmousedown="upper.keyOn(24)" onmouseup="upper.keyOff(24)"></li>
+        <li class="black cs" id="ukey25" type="button" onmousedown="upper.keyOn(25)" onmouseup="upper.keyOff(25)"></li>
+        <li class="white d" id="ukey26" type="button" onmousedown="upper.keyOn(26)" onmouseup="upper.keyOff(26)"></li>
+        <li class="black ds" id="ukey27" type="button" onmousedown="upper.keyOn(27)" onmouseup="upper.keyOff(27)"></li>
+        <li class="white e" id="ukey28" type="button" onmousedown="upper.keyOn(28)" onmouseup="upper.keyOff(28)"></li>
+        <li class="white f" id="ukey29" type="button" onmousedown="upper.keyOn(29)" onmouseup="upper.keyOff(29)"></li>
+        <li class="black fs" id="ukey30" type="button" onmousedown="upper.keyOn(30)" onmouseup="upper.keyOff(30)"></li>
+        <li class="white g" id="ukey31" type="button" onmousedown="upper.keyOn(31)" onmouseup="upper.keyOff(31)"></li>
+        <li class="black gs" id="ukey32" type="button" onmousedown="upper.keyOn(32)" onmouseup="upper.keyOff(32)"></li>
+        <li class="white a" id="ukey33" type="button" onmousedown="upper.keyOn(33)" onmouseup="upper.keyOff(33)"></li>
+        <li class="black as" id="ukey34" type="button" onmousedown="upper.keyOn(34)" onmouseup="upper.keyOff(34)"></li>
+        <li class="white b" id="ukey35" type="button" onmousedown="upper.keyOn(35)" onmouseup="upper.keyOff(35)"></li>
+        <li class="white c" id="ukey36" type="button" onmousedown="upper.keyOn(36)" onmouseup="upper.keyOff(36)"></li>
+        <li class="black cs" id="ukey37" type="button" onmousedown="upper.keyOn(37)" onmouseup="upper.keyOff(37)"></li>
+        <li class="white d" id="ukey38" type="button" onmousedown="upper.keyOn(38)" onmouseup="upper.keyOff(38)"></li>
+        <li class="black ds" id="ukey39" type="button" onmousedown="upper.keyOn(39)" onmouseup="upper.keyOff(39)"></li>
+        <li class="white e" id="ukey40" type="button" onmousedown="upper.keyOn(40)" onmouseup="upper.keyOff(40)"></li>
+        <li class="white f" id="ukey41" type="button" onmousedown="upper.keyOn(41)" onmouseup="upper.keyOff(41)"></li>
+        <li class="black fs" id="ukey42" type="button" onmousedown="upper.keyOn(42)" onmouseup="upper.keyOff(42)"></li>
+        <li class="white g" id="ukey43" type="button" onmousedown="upper.keyOn(43)" onmouseup="upper.keyOff(43)"></li>
+        <li class="black gs" id="ukey44" type="button" onmousedown="upper.keyOn(44)" onmouseup="upper.keyOff(44)"></li>
+        <li class="white a" id="ukey45" type="button" onmousedown="upper.keyOn(45)" onmouseup="upper.keyOff(45)"></li>
+        <li class="black as" id="ukey46" type="button" onmousedown="upper.keyOn(46)" onmouseup="upper.keyOff(46)"></li>
+        <li class="white b" id="ukey47" type="button" onmousedown="upper.keyOn(47)" onmouseup="upper.keyOff(47)"></li>
+        <li class="white c" id="ukey48" type="button" onmousedown="upper.keyOn(48)" onmouseup="upper.keyOff(48)"></li>
+        <li class="black cs" id="ukey49" type="button" onmousedown="upper.keyOn(49)" onmouseup="upper.keyOff(49)"></li>
+        <li class="white d" id="ukey50" type="button" onmousedown="upper.keyOn(50)" onmouseup="upper.keyOff(50)"></li>
+        <li class="black ds" id="ukey51" type="button" onmousedown="upper.keyOn(51)" onmouseup="upper.keyOff(51)"></li>
+        <li class="white e" id="ukey52" type="button" onmousedown="upper.keyOn(52)" onmouseup="upper.keyOff(52)"></li>
+        <li class="white f" id="ukey53" type="button" onmousedown="upper.keyOn(53)" onmouseup="upper.keyOff(53)"></li>
+        <li class="black fs" id="ukey54" type="button" onmousedown="upper.keyOn(54)" onmouseup="upper.keyOff(54)"></li>
+        <li class="white g" id="ukey55" type="button" onmousedown="upper.keyOn(55)" onmouseup="upper.keyOff(55)"></li>
+        <li class="black gs" id="ukey56" type="button" onmousedown="upper.keyOn(56)" onmouseup="upper.keyOff(56)"></li>
+        <li class="white a" id="ukey57" type="button" onmousedown="upper.keyOn(57)" onmouseup="upper.keyOff(57)"></li>
+        <li class="black as" id="ukey58" type="button" onmousedown="upper.keyOn(58)" onmouseup="upper.keyOff(58)"></li>
+        <li class="white b" id="ukey59" type="button" onmousedown="upper.keyOn(59)" onmouseup="upper.keyOff(59)"></li>
+        <li class="white c" id="ukey60" type="button" onmousedown="upper.keyOn(60)" onmouseup="upper.keyOff(60)"></li>
+    </ul>
+    <ul class="set">
+        <!-- Lower manual -->
+        <li class="white c" id="lkey0" type="button" onmousedown="lower.keyOn(0)" onmouseup="lower.keyOff(0)"></li>
+        <li class="black cs" id="lkey1" type="button" onmousedown="lower.keyOn(1)" onmouseup="lower.keyOff(1)"></li>
+        <li class="white d" id="lkey2" type="button" onmousedown="lower.keyOn(2)" onmouseup="lower.keyOff(2)"></li>
+        <li class="black ds" id="lkey3" type="button" onmousedown="lower.keyOn(3)" onmouseup="lower.keyOff(3)"></li>
+        <li class="white e" id="lkey4" type="button" onmousedown="lower.keyOn(4)" onmouseup="lower.keyOff(4)"></li>
+        <li class="white f" id="lkey5" type="button" onmousedown="lower.keyOn(5)" onmouseup="lower.keyOff(5)"></li>
+        <li class="black fs" id="lkey6" type="button" onmousedown="lower.keyOn(6)" onmouseup="lower.keyOff(6)"></li>
+        <li class="white g" id="lkey7" type="button" onmousedown="lower.keyOn(7)" onmouseup="lower.keyOff(7)"></li>
+        <li class="black gs" id="lkey8" type="button" onmousedown="lower.keyOn(8)" onmouseup="lower.keyOff(8)"></li>
+        <li class="white a" id="lkey9" type="button" onmousedown="lower.keyOn(9)" onmouseup="lower.keyOff(9)"></li>
+        <li class="black as" id="lkey10" type="button" onmousedown="lower.keyOn(10)" onmouseup="lower.keyOff(10)"></li>
+        <li class="white b" id="lkey11" type="button" onmousedown="lower.keyOn(11)" onmouseup="lower.keyOff(11)"></li>
+        <li class="white c" id="lkey12" type="button" onmousedown="lower.keyOn(12)" onmouseup="lower.keyOff(12)"></li>
+        <li class="black cs" id="lkey13" type="button" onmousedown="lower.keyOn(13)" onmouseup="lower.keyOff(13)"></li>
+        <li class="white d" id="lkey14" type="button" onmousedown="lower.keyOn(14)" onmouseup="lower.keyOff(14)"></li>
+        <li class="black ds" id="lkey15" type="button" onmousedown="lower.keyOn(15)" onmouseup="lower.keyOff(15)"></li>
+        <li class="white e" id="lkey16" type="button" onmousedown="lower.keyOn(16)" onmouseup="lower.keyOff(16)"></li>
+        <li class="white f" id="lkey17" type="button" onmousedown="lower.keyOn(17)" onmouseup="lower.keyOff(17)"></li>
+        <li class="black fs" id="lkey18" type="button" onmousedown="lower.keyOn(18)" onmouseup="lower.keyOff(18)"></li>
+        <li class="white g" id="lkey19" type="button" onmousedown="lower.keyOn(19)" onmouseup="lower.keyOff(19)"></li>
+        <li class="black gs" id="lkey20" type="button" onmousedown="lower.keyOn(20)" onmouseup="lower.keyOff(20)"></li>
+        <li class="white a" id="lkey21" type="button" onmousedown="lower.keyOn(21)" onmouseup="lower.keyOff(21)"></li>
+        <li class="black as" id="lkey22" type="button" onmousedown="lower.keyOn(22)" onmouseup="lower.keyOff(22)"></li>
+        <li class="white b" id="lkey23" type="button" onmousedown="lower.keyOn(23)" onmouseup="lower.keyOff(23)"></li>
+        <li class="white c" id="lkey24" type="button" onmousedown="lower.keyOn(24)" onmouseup="lower.keyOff(24)"></li>
+        <li class="black cs" id="lkey25" type="button" onmousedown="lower.keyOn(25)" onmouseup="lower.keyOff(25)"></li>
+        <li class="white d" id="lkey26" type="button" onmousedown="lower.keyOn(26)" onmouseup="lower.keyOff(26)"></li>
+        <li class="black ds" id="lkey27" type="button" onmousedown="lower.keyOn(27)" onmouseup="lower.keyOff(27)"></li>
+        <li class="white e" id="lkey28" type="button" onmousedown="lower.keyOn(28)" onmouseup="lower.keyOff(28)"></li>
+        <li class="white f" id="lkey29" type="button" onmousedown="lower.keyOn(29)" onmouseup="lower.keyOff(29)"></li>
+        <li class="black fs" id="lkey30" type="button" onmousedown="lower.keyOn(30)" onmouseup="lower.keyOff(30)"></li>
+        <li class="white g" id="lkey31" type="button" onmousedown="lower.keyOn(31)" onmouseup="lower.keyOff(31)"></li>
+        <li class="black gs" id="lkey32" type="button" onmousedown="lower.keyOn(32)" onmouseup="lower.keyOff(32)"></li>
+        <li class="white a" id="lkey33" type="button" onmousedown="lower.keyOn(33)" onmouseup="lower.keyOff(33)"></li>
+        <li class="black as" id="lkey34" type="button" onmousedown="lower.keyOn(34)" onmouseup="lower.keyOff(34)"></li>
+        <li class="white b" id="lkey35" type="button" onmousedown="lower.keyOn(35)" onmouseup="lower.keyOff(35)"></li>
+        <li class="white c" id="lkey36" type="button" onmousedown="lower.keyOn(36)" onmouseup="lower.keyOff(36)"></li>
+        <li class="black cs" id="lkey37" type="button" onmousedown="lower.keyOn(37)" onmouseup="lower.keyOff(37)"></li>
+        <li class="white d" id="lkey38" type="button" onmousedown="lower.keyOn(38)" onmouseup="lower.keyOff(38)"></li>
+        <li class="black ds" id="lkey39" type="button" onmousedown="lower.keyOn(39)" onmouseup="lower.keyOff(39)"></li>
+        <li class="white e" id="lkey40" type="button" onmousedown="lower.keyOn(40)" onmouseup="lower.keyOff(40)"></li>
+        <li class="white f" id="lkey41" type="button" onmousedown="lower.keyOn(41)" onmouseup="lower.keyOff(41)"></li>
+        <li class="black fs" id="lkey42" type="button" onmousedown="lower.keyOn(42)" onmouseup="lower.keyOff(42)"></li>
+        <li class="white g" id="lkey43" type="button" onmousedown="lower.keyOn(43)" onmouseup="lower.keyOff(43)"></li>
+        <li class="black gs" id="lkey44" type="button" onmousedown="lower.keyOn(44)" onmouseup="lower.keyOff(44)"></li>
+        <li class="white a" id="lkey45" type="button" onmousedown="lower.keyOn(45)" onmouseup="lower.keyOff(45)"></li>
+        <li class="black as" id="lkey46" type="button" onmousedown="lower.keyOn(46)" onmouseup="lower.keyOff(46)"></li>
+        <li class="white b" id="lkey47" type="button" onmousedown="lower.keyOn(47)" onmouseup="lower.keyOff(47)"></li>
+        <li class="white c" id="lkey48" type="button" onmousedown="lower.keyOn(48)" onmouseup="lower.keyOff(48)"></li>
+        <li class="black cs" id="lkey49" type="button" onmousedown="lower.keyOn(49)" onmouseup="lower.keyOff(49)"></li>
+        <li class="white d" id="lkey50" type="button" onmousedown="lower.keyOn(50)" onmouseup="lower.keyOff(50)"></li>
+        <li class="black ds" id="lkey51" type="button" onmousedown="lower.keyOn(51)" onmouseup="lower.keyOff(51)"></li>
+        <li class="white e" id="lkey52" type="button" onmousedown="lower.keyOn(52)" onmouseup="lower.keyOff(52)"></li>
+        <li class="white f" id="lkey53" type="button" onmousedown="lower.keyOn(53)" onmouseup="lower.keyOff(53)"></li>
+        <li class="black fs" id="lkey54" type="button" onmousedown="lower.keyOn(54)" onmouseup="lower.keyOff(54)"></li>
+        <li class="white g" id="lkey55" type="button" onmousedown="lower.keyOn(55)" onmouseup="lower.keyOff(55)"></li>
+        <li class="black gs" id="lkey56" type="button" onmousedown="lower.keyOn(56)" onmouseup="lower.keyOff(56)"></li>
+        <li class="white a" id="lkey57" type="button" onmousedown="lower.keyOn(57)" onmouseup="lower.keyOff(57)"></li>
+        <li class="black as" id="lkey58" type="button" onmousedown="lower.keyOn(58)" onmouseup="lower.keyOff(58)"></li>
+        <li class="white b" id="lkey59" type="button" onmousedown="lower.keyOn(59)" onmouseup="lower.keyOff(59)"></li>
+        <li class="white c" id="lkey60" type="button" onmousedown="lower.keyOn(60)" onmouseup="lower.keyOff(60)"></li>
+    </ul>
+    <script src='main.js'></script>
+</body>
+
+</html>
