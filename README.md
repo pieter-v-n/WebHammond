@@ -18,7 +18,7 @@ The project is still in prototyping mode. The following is still to be done:
 * Add Leakage control to the GUI
 * Add Leslie switch (off/slow/fast) to GUI to replace the speed and depth sliders
 * Add Dry/Wet control to GUI to mix pre- and post reverb signals
-* Add precussion
+* Add percussion
 * Fine tuning of the compressor parameters
 * Fine tuning of the Leslie delay lines
 
