@@ -25,3 +25,8 @@ This organ runs completely in the browser. A server is only needed to serve the 
 This project is fully dependent on the Web Audio API and the MIDI API. This should be supported by all modern browsers.
 This should be run on computer with sufficient (real-time) performance. Due to the scheduling mechanism in Windows OS, smooth playing on Windows based comoputers is a challenge. Try Linux in stead.
 For using MIDI, due to security constraints, the files for the browser should be served remotely via https. Locally, the files can be served via http for MIDI to work. 
+
+# Detailed desciption
+## Tone Generator
+The tone generator is provided by the Generator class. It instantiates the (91) sine oscillators using the toneWheels array to define each frequency. In the real organ, 2 tone wheels and their pick-ips are mounted close together in the same metal compartment. This causes leakage from one tone wheel to the other. This leakage can be enabled by the leakage control. The leakMap array defines which tone wheels are adjacent. [!tone generator](docs/hammond-tonegenerator.png)
+
