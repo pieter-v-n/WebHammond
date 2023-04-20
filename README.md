@@ -28,5 +28,5 @@ For using MIDI, due to security constraints, the files for the browser should be
 
 # Detailed desciption
 ## Tone Generator
-The tone generator is provided by the Generator class. It instantiates the (91) sine oscillators using the toneWheels array to define each frequency. In the real organ, 2 tone wheels and their pick-ips are mounted close together in the same metal compartment. This causes leakage from one tone wheel to the other. This leakage can be enabled by the leakage control. The leakMap array defines which tone wheels are adjacent. [!tone generator](docs/hammond-tonegenerator.png)
+The tone generator is provided by the Generator class. It instantiates the (91) sine oscillators using the toneWheels array to define each frequency. In the real organ, 2 tone wheels and their pick-ips are mounted close together in the same metal compartment. This causes leakage from one tone wheel to the other. This leakage can be enabled by the leakage control. The leakMap array defines which tone wheels are adjacent. ![tone generator](/docs/hammond-tonegenerator.png)
 
