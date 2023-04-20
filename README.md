@@ -20,6 +20,7 @@ The project is still in prototyping mode. The following is still to be done:
 * Add Dry/Wet control to GUI to mix pre- and post reverb signals
 * Add precussion
 * Fine tuning of the compressor parameters
+* Fine tuning of the Leslie delay lines
 
 # Requirements
 This organ runs completely in the browser. A server is only needed to serve the HTML, CSS, JS and WAV files to the client.
@@ -43,3 +44,9 @@ The chorus is implemented by just taking a delayed input signal and to add to th
 The upper and lower manuals have their own vibrato and chorus and the speed and depth can be individually controlled by the GUI.
 The volume of the signal is controlled by the swell pedal. When a MIDI keyboard is connnected, the value of the pitch-bend parameter is used to act as the swell pedal.
 The compressor reduces the dynamic range of the signal. This emulates the effects of the power supply and the tube amplifier of the original organ not be able to produce a constant amplifiaction of the signal. When the signal is load, the amplification is reduced. ![Vibrato, Chorus and Compressor](/docs/hammond-vibrato.png) Before the signal is going to the Leslie unit, it is split into a high and low frequency signal by a high-pass and low-pass filter.
+
+## Leslie and Reverb
+Although not part of the Hammond organ, the Leslie box must not be omitted. Its primary goal is to spread the organ sound into the listening space, hereby producing a Doppler effect by the rotating speakers.
+For the real Leslie box, the signal with higher frequencies is fed to the rotating horn speaker and the lower frequencies are fed to the bass speaker with its rotating baffle. Note: the horn and baffle are rotating in opposite directions.
+In the emulator, the two signals with high and low frequency components are fed into the two leslie components. The leslie is implemented in a similar way as the vibrato component: the signal is fed into a set of delay lines and scanner taps the signal from the delay lines to produce the Doppler effect of the roating speaker. In addition to the frquency and phase shifts, a stereo panner component moves the signal from left to right and back in sync with the Doppler effect. The result is the sound you would expect from a rotating speaker. The other leslie unit works the same, with the direction of rotation reversed. ![Leslie and Reverb](/docs/hammond-leslie.png)
+In reality, the Hammond organ and its accompanying Leslie box is located in a listening space. This space has specific acoustic parameters. This emulator provides a extensive list of listening spaces. The user can select a listening space and the emulator will adjust the signal to mimic that environment. This is accomplished by the reverb component. The acoustics of each space is determined by recording the Impulse Response (by firing a pistol in that space). The organ signal and the impulse response signal are then convoluted to produce the final audio signal for listening.
