@@ -23,4 +23,4 @@ The project is still in prototyping mode. The following is still to be done:
 This organ runs completely in the browser. A server is only needed to serve the HTML, CSS, JS and WAV files to the client.
 This project is fully dependent on the Web Audio API and the MIDI API. This should be supported by all modern browsers.
 This should be run on computer with sufficient (real-time) performance. Due to the scheduling mechanism in Windows OS, smooth playing on Windows based comoputers is a challenge. Try Linux in stead.
-For using MIDI, sue to security constraints, the files for the browser should be served remotely via https. Locally, the files can be served via http for MIDI to work. 
+For using MIDI, due to security constraints, the files for the browser should be served remotely via https. Locally, the files can be served via http for MIDI to work. 
