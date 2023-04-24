@@ -43,7 +43,7 @@ To further enhance the sound from the keyboards, a vibrato and chorus is added. 
 The chorus is implemented by just taking a delayed input signal and to add to this the output from the vibrato.
 The upper and lower manuals have their own vibrato and chorus and the speed and depth can be individually controlled by the GUI.
 The volume of the signal is controlled by the swell pedal. When a MIDI keyboard is connnected, the value of the pitch-bend parameter is used to act as the swell pedal.
-The compressor reduces the dynamic range of the signal. This emulates the effects of the power supply and the tube amplifier of the original organ not be able to produce a constant amplifiaction of the signal. When the signal is loud, the amplification is reduced. ![Vibrato, Chorus and Compressor](/docs/hammond-vibrato.png) Before the signal is going to the Leslie unit, it is split into a high and low frequency signal by a high-pass and low-pass filter.
+The compressor reduces the dynamic range of the signal. This emulates the effects of the power supply and the tube amplifier of the original organ not be able to produce a constant amplification of the signal. When the signal is loud, the amplification is reduced. ![Vibrato, Chorus and Compressor](/docs/hammond-vibrato.png) Before the signal is going to the Leslie unit, it is split into a high and low frequency signal by a high-pass and low-pass filter.
 
 ## Leslie and Reverb
 Although not part of the Hammond organ, the Leslie box must not be omitted. Its primary goal is to spread the organ sound into the listening space, hereby producing a Doppler effect by the rotating speakers.
