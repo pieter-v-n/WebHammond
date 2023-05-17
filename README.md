@@ -56,7 +56,7 @@ After downloading the `index.html`, `main.css`, `main.js` and `vwood.jpg` files 
 You can try yourself here: [WebHammond](https://thermis.nl/hammond/).
 
 ## Starting the organ
-Before you can play anything, you need to switch on the organ, like the real thing. Click on the Start button. The button turns green nd shows Running.
+Before you can play anything, you need to switch on the organ, like the real thing. Click on the `Start` button. The button turns green and shows `Running`.
 
 ## Use the draw-bars
 When the draw-bars are in the initial position, nothing will be heard because no signals from the oscillators are fed to the output. Therefor, use the sliders in downward direction to increase the volume. The upper-, lower- and pedal keyboards have thier own draw-bars.
@@ -66,7 +66,7 @@ After you have set the draw-bars, you can check the Hammond sound by playing som
 If you click on a key, it will be played. If you unclick a key, the note will stop playing. In order to play poly-phonic, you can click a on a key and while holding down, move the pointer away. The note will continue to play. Now you can click another key to add a note to play.
 
 ## Connect a physical MIDI keyboard
-Simply connect the physical MIDI keyboard to your computer and click the MIDI button. Initially, the MIDI keyboard will be associated with the Upper manual. You can select also the Lower manual or Pedal to be associated with the MIDI keyboard.
+Simply connect the physical MIDI keyboard to your computer and click the `MIDI` button. Initially, the MIDI keyboard will be associated with the Upper manual. You can select also the Lower manual or Pedal to be associated with the MIDI keyboard.
 
 ## Change Vibrato, Chorus and Leslie settings
 By moving the horizontal sliders, you can change the effect of the Vibrato, Chorus and Leslie:
