@@ -1,5 +1,5 @@
 # WebHammond
-Hammond organ emulator for the browser. 
+Hammond organ emulator for the browser. No hardware needed. No software, no plug-ins, no drivers needed. Play Hammond Organ directly in the browser. 
 
 ## Introduction
 This project provides you a Hammond Tonewheel Organ in the browser.
