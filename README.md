@@ -53,7 +53,7 @@ In reality, the Hammond organ and its accompanying Leslie box is located in a li
 
 # Usage
 After downloading the `index.html`, `main.css`, `main.js` and `vwood.jpg` files into a root folder, and the reverb `.wav` files in the `library` folder, you are good to go.
-You can try yourself here:[WebHammond](https://thermis.nl/hammond/).
+You can try yourself here: [WebHammond](https://thermis.nl/hammond/).
 
 ## Starting the organ
 Before you can play anything, you need to switch on the organ, like the real thing. Click on the Start button. The button turns green nd shows Running.
