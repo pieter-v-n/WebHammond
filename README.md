@@ -66,7 +66,7 @@ After you have set the draw-bars, you can check the Hammond sound by playing som
 If you click on a key, it will be played. If you unclick a key, the note will stop playing. In order to play poly-phonic, you can click a on a key and while holding down, move the pointer away. The note will continue to play. Now you can click another key to add a note to play.
 
 ## Connect a physical MIDI keyboard
-Simply connect the physical MIDI keyboard to your computer and click the `MIDI` button. Initially, the MIDI keyboard will be associated with the Upper manual. You can select also the Lower manual or Pedal to be associated with the MIDI keyboard. If your MIDI keyboard has a pitch-bend wheel, then use this as the expression (swell) pedal.
+If you want to play more than just a few notes, you need a better keyboard. Simply connect the physical MIDI keyboard to your computer and click the `MIDI` button. Initially, the MIDI keyboard will be associated with the Upper manual. You can select also the Lower manual or Pedal to be associated with the MIDI keyboard. If your MIDI keyboard has a pitch-bend wheel, then use this as the expression (swell) pedal.
 
 ## Change Vibrato, Chorus and Leslie settings
 By moving the horizontal sliders, you can change the effect of the Vibrato, Chorus and Leslie:
