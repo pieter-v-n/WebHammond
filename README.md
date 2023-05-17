@@ -55,3 +55,31 @@ In reality, the Hammond organ and its accompanying Leslie box is located in a li
 After downloading the `index.html`, `main.css`, `main.js` and `vwood.jpg` files into a root folder, and the reverb `.wav` files in the `library` folder, you are good to go.
 You can try yourself here:[WebHammond](https://thermis.nl/hammond/).
 
+## Starting the organ
+Before you can play anything, you need to switch on the organ, like the real thing. Click on the Start button. The button turns green nd shows Running.
+
+## Use the draw-bars
+When the draw-bars are in the initial position, nothing will be heard because no signals from the oscillators are fed to the output. Therefor, use the sliders in downward direction to increase the volume. The upper-, lower- and pedal keyboards have thier own draw-bars.
+
+## Play the notes
+After you have set the draw-bars, you can check the Hammond sound by playing some notes on the virtual keyboards. There is an upper and a lower virtual keyboard. No pedals are provided.
+If you click on a key, it will be played. If you unclick a key, the note will stop playing. In order to play poly-phonic, you can click a on a key and while holding down, move the pointer away. The note will continue to play. Now you can click another key to add a note to play.
+
+## Connect a physical MIDI keyboard
+Simply connect the physical MIDI keyboard to your computer and click the MIDI button. Initially, the MIDI keyboard will be associated with the Upper manual. You can select also the Lower manual or Pedal to be associated with the MIDI keyboard.
+
+## Change Vibrato, Chorus and Leslie settings
+By moving the horizontal sliders, you can change the effect of the Vibrato, Chorus and Leslie:
+- `uVf`: Upper Manual Vibrato Frequency (slow - fast)
+- `uVd`: Upper Manual Vibrato Depth (none - max)
+- `uCh`: Upper Manual Chorus (none - max)
+- `lVf`: Lower Manual Vibrato Frequency (slow - fast)
+- `lVd`: Lower Manual Vibrato Depth (none - max)
+- `lCh`: Lower Manual Chorus (none - max)
+- `lsf`: Leslie Speed (none - slow - fast)
+- `lsd`: Leslie Depth (none - max)
+
+## Change listing environment
+Initially, the orgn is placed in the `DomesticLivingRoom` listening environment. This provides a short and dampened reverb. For other listing environments, most with far more reverb, select another one from the pulldown menu.
+
+
