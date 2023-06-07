@@ -81,12 +81,12 @@ By moving the horizontal sliders, you can change the effect of the Vibrato, Chor
 - `lsd`: Leslie Depth (none - max)
 
 ## Change listening environment
-Initially, the organ is placed in the `DomesticLivingRoom` listening environment. This provides a short and dampened reverb. For other listing environments, most with far more reverb, select another one from the pulldown menu. The reverb for each listening environment is obtained by recording the impulse response of the room. This response is then convoluted in real-time with the organ sound, resulting in a realistic organ experience.
+Initially, the organ is placed in the `DomesticLivingRoom` listening environment. This provides a short and dampened reverb. For other listing environments, most with far more reverb, select another one from the pulldown menu. The reverb for each listening environment is obtained by recording the impulse response of the room. This response is then convoluted in real-time with the organ sound, resulting in a realistic organ experience. Available listening environments:
 
 - Abernyte Grain Silo 
 - Arbroath Abbey Sacristy
 - Basement
-- Domestic Living Room
+- Domestic Living Room (default)
 - Elveden Hall Lords Cloakroom
 - Elveden Hall Marble Hall
 - Elveden Hall Smoking Room
