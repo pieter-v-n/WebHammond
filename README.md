@@ -1,5 +1,5 @@
 # WebHammond
-Hammond organ emulator for the browser. No hardware needed. No software, no plug-ins, no drivers needed. Play Hammond Organ directly in the browser. Try here: [WebHammond](https://thermis.nl/hammond/): see section [Usage](https://github.com/pieter-v-n/WebHammond/blob/main/README.md#usage) below.
+Hammond organ emulator for the browser. No hardware needed. No software, no plug-ins, no drivers needed. Play Hammond Organ directly in the browser. Try here: [WebHammond](https://home.thermis.nl/hammond/index.html): see section [Usage](https://github.com/pieter-v-n/WebHammond/blob/main/README.md#usage) below.
 
 ## Introduction
 This project provides you a Hammond Tonewheel Organ in the browser.
@@ -53,7 +53,7 @@ In reality, the Hammond organ and its accompanying Leslie box is located in a li
 
 # Usage
 After downloading the `index.html`, `main.css`, `main.js` and `vwood.jpg` files into a root folder, and the reverb `.wav` files in the `library` folder, you are good to go.
-You can try yourself here: [WebHammond](https://thermis.nl/hammond/).
+You can try yourself here: [WebHammond](https://home.thermis.nl/hammond/index.html).
 ![Screenshot](/docs/HammondEmulator.png)
 
 ## Starting the organ
